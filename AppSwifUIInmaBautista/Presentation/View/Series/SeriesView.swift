@@ -8,13 +8,27 @@
 import SwiftUI
 
 struct SeriesView: View {
+//    var characterId: Int
+    @StateObject var viewModel: SeriesViewModel
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationStack {
+            List {
+                if let series = viewModel.series {
+                    ForEach(series) { serie in
+                        SeriesRowView(serie: serie)
+                            .frame(height: 500)
+                    }
+                }
+            }
+        }
+        
+    
     }
 }
 
 struct SeriesView_Previews: PreviewProvider {
     static var previews: some View {
-        SeriesView()
+        SeriesView(viewModel: SeriesViewModel(characterId: 1009144))
     }
 }
+

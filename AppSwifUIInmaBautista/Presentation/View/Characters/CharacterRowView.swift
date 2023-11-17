@@ -15,7 +15,7 @@ struct CharacterRowView: View {
                 image
                     .resizable()
                     .cornerRadius(20)
-                    .opacity(0.7)
+                    .opacity(0.8)
             } placeholder: {
                 Image(systemName: "photo")
                     .resizable()

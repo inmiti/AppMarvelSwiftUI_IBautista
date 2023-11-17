@@ -7,7 +7,7 @@
 
 import Foundation 
 
-let response: Response = Response(data: DataClass(results: [
+let responseCharacters: Response = Response(data: DataClass(results: [
         Character(
             id: 1011334,
             name: "3-D Man",

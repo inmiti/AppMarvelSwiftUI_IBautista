@@ -9,15 +9,13 @@ import SwiftUI
 
 struct CharactersView: View {
     @EnvironmentObject var rootViewModel: RootViewModel
-    @State private var filter: String = ""
-//    @StateObject var viewModel: RootViewModel
     var body: some View {
         NavigationStack {
             List{
                 if let characters = rootViewModel.characters{
                     ForEach(characters) { character in
                         NavigationLink {
-                            //Destino
+                            SeriesView(viewModel: SeriesViewModel(characterId: character.id))
                         } label: {
                             //Celda personalizada
                             CharacterRowView(character: character)

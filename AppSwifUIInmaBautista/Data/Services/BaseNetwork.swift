@@ -10,6 +10,7 @@ import Foundation
 //MARK: - Properties
 
 let server = "https://gateway.marvel.com/"
+let endpoint = "v1/public/characters"
 let content = "application/json"
 let contentType = "Content-type"
 let apikey = "d5d46f82e5e1ac7df0adeb18d9413912"
@@ -30,7 +31,17 @@ enum endpoints: String {
 //MARK: - Request
 struct BaseNetwork {
     func getCharacters() -> URLRequest {
-        let urlS = "\(server)\(endpoints.characterView.rawValue)?apikey=\(apikey)&ts=\(ts)&hash=\(hash)"
+        let urlS = "\(server)\(endpoint)?apikey=\(apikey)&ts=\(ts)&hash=\(hash)"
+        var request: URLRequest = URLRequest(url: URL(string: urlS)!)
+        request.httpMethod = HTTPMethods.get
+        request.addValue(content, forHTTPHeaderField: contentType)
+        return request
+    }
+    
+    func getSeries(characterId: Int) -> URLRequest {
+        let characterIdString = String(characterId)
+        let urlS = "\(server)\(endpoint)/\(characterIdString)/series?apikey=\(apikey)&ts=\(ts)&hash=\(hash)"
+//        let urlS = "http://gateway.marvel.com/v1/public/characters/\(characterId)/series?apikey=d5d46f82e5e1ac7df0adeb18d9413912&ts=1&hash=236eb6b30b2e0efab2c602e51a5345af"
         var request: URLRequest = URLRequest(url: URL(string: urlS)!)
         request.httpMethod = HTTPMethods.get
         request.addValue(content, forHTTPHeaderField: contentType)
