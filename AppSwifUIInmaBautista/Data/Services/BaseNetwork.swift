@@ -7,7 +7,7 @@
 
 import Foundation
 
-//Propiedades
+//MARK: - Properties
 
 let server = "https://gateway.marvel.com/"
 let content = "application/json"
@@ -27,6 +27,7 @@ enum endpoints: String {
     case characterView = "v1/public/characters"
 }
 
+//MARK: - Request
 struct BaseNetwork {
     func getCharacters() -> URLRequest {
         let urlS = "\(server)\(endpoints.characterView.rawValue)?apikey=\(apikey)&ts=\(ts)&hash=\(hash)"

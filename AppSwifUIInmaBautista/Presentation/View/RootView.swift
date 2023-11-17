@@ -16,8 +16,8 @@ struct RootView: View {
                 LoaderView()
             case .loading:
                 LoaderView()
-            case .error:
-                ErrorView()
+            case .error(error: let error):
+                ErrorView(error: error)
             case .loaded:
                 CharactersView()
         }

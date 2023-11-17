@@ -26,6 +26,8 @@
 		1FDC49A32B064A1600A78513 /* CharacterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDC49A22B064A1600A78513 /* CharacterModel.swift */; };
 		1FDC49A52B066F4900A78513 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDC49A42B066F4900A78513 /* RootView.swift */; };
 		1FDC49A72B066FC600A78513 /* StatusModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDC49A62B066FC600A78513 /* StatusModel.swift */; };
+		1FE2BFA52B07EAB300EB71C1 /* SeriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE2BFA42B07EAB300EB71C1 /* SeriesView.swift */; };
+		1FE2BFA72B07EAC600EB71C1 /* SeriesRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE2BFA62B07EAC600EB71C1 /* SeriesRowView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +72,8 @@
 		1FDC49A22B064A1600A78513 /* CharacterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterModel.swift; sourceTree = "<group>"; };
 		1FDC49A42B066F4900A78513 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		1FDC49A62B066FC600A78513 /* StatusModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusModel.swift; sourceTree = "<group>"; };
+		1FE2BFA42B07EAB300EB71C1 /* SeriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesView.swift; sourceTree = "<group>"; };
+		1FE2BFA62B07EAC600EB71C1 /* SeriesRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesRowView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,6 +201,7 @@
 		1FDC498F2B063D5000A78513 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				1FE2BFA32B07EA9500EB71C1 /* Series */,
 				1FDC49952B063E7900A78513 /* Characters */,
 				1FDC49902B063D6100A78513 /* Tools */,
 				1FDC49A42B066F4900A78513 /* RootView.swift */,
@@ -277,6 +282,15 @@
 			children = (
 			);
 			path = Repository;
+			sourceTree = "<group>";
+		};
+		1FE2BFA32B07EA9500EB71C1 /* Series */ = {
+			isa = PBXGroup;
+			children = (
+				1FE2BFA42B07EAB300EB71C1 /* SeriesView.swift */,
+				1FE2BFA62B07EAC600EB71C1 /* SeriesRowView.swift */,
+			);
+			path = Series;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -421,8 +435,10 @@
 				1FDC499D2B06403600A78513 /* CharacterViewModel.swift in Sources */,
 				1FDC49A52B066F4900A78513 /* RootView.swift in Sources */,
 				1FDC49992B063FF800A78513 /* CharacterRowView.swift in Sources */,
+				1FE2BFA72B07EAC600EB71C1 /* SeriesRowView.swift in Sources */,
 				1FDC49922B063D7700A78513 /* LoaderView.swift in Sources */,
 				1FDC49942B063D8800A78513 /* ErrorView.swift in Sources */,
+				1FE2BFA52B07EAB300EB71C1 /* SeriesView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

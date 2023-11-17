@@ -9,11 +9,8 @@ import Foundation
 import Combine
 
 final class RootViewModel: ObservableObject{
-    @Published var status = Status.loading
-    
-//    @Published var welcome: [Welcome]?
-    
-    @Published var characters: [Result]?
+    @Published var status = Status.none
+    @Published var characters: [Character]?
     
     var suscriptors = Set<AnyCancellable>()
     
@@ -23,6 +20,8 @@ final class RootViewModel: ObservableObject{
     }
     
     func loadCharacters() {
+        status = .loading
+        
         URLSession.shared
             .dataTaskPublisher(for: BaseNetwork().getCharacters())
             .tryMap {
@@ -36,7 +35,7 @@ final class RootViewModel: ObservableObject{
                 return $0.data
                 
             }
-            .decode(type: Welcome.self, decoder: JSONDecoder())
+            .decode(type: Response.self, decoder: JSONDecoder())
             .receive(on: DispatchQueue.main)
             .sink { completion in
                 //Evaluamos la respuesta:

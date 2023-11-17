@@ -8,17 +8,38 @@
 import SwiftUI
 
 struct CharacterRowView: View {
-//    var character: Result
+    var character: Character
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack{
+            AsyncImage(url: URL(string: "\(character.thumbnail.path).\(character.thumbnail.extension)")) { image in
+                image
+                    .resizable()
+                    .cornerRadius(20)
+                    .opacity(0.7)
+            } placeholder: {
+                Image(systemName: "photo")
+                    .resizable()
+                    .cornerRadius(20)
+                    .opacity(0.8)
+                    .foregroundColor(.gray)
+            }
+            
+            VStack(alignment: .leading) {
+                Spacer()
+                    Text(character.name)
+                        .font(.title)
+                        .foregroundColor(.black)
+                        .bold()
+                        .padding([.bottom, .leading], 20)
+   
+            }
+        }
     }
 }
 
 struct CharacterRowView_Previews: PreviewProvider {
     static var previews: some View {
-        CharacterRowView()
-//    character:Result(id: 1017857, name: "Peggy Carter (Captain Carter)", description: "", thumbnail: Thumbnail(path: "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available", thumbnailExtension: "jpg"), series: <#T##Series#>)
-//
+        CharacterRowView(character: Character(id: 1012717, name: "Agatha Harkness", description: "", modified: "", thumbnail: Thumbnail(path: "http://i.annihil.us/u/prod/marvel/i/mg/c/a0/4ce5a9bf70e19", extension: "jpg")))
                     
     }
 }

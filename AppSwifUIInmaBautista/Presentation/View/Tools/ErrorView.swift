@@ -8,13 +8,24 @@
 import SwiftUI
 
 struct ErrorView: View {
+    @EnvironmentObject var rootViewModel: RootViewModel
+    
+    private var textError: String
+    init(error: String) {
+        self.textError = error
+    }
     var body: some View {
-        Text("Error llamada Api")
+        VStack{
+            Text("Error")
+            
+        }
+       
     }
 }
 
 struct ErrorView_Previews: PreviewProvider {
     static var previews: some View {
-        ErrorView()
+        ErrorView(error: "Prueba de error")
+            .environmentObject(RootViewModel())
     }
 }
