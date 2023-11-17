@@ -9,9 +9,14 @@ import SwiftUI
 
 @main
 struct AppSwifUIInmaBautistaApp: App {
+    
+    //ViewModel global
+    @StateObject var rootViewModel = RootViewModel()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            RootView()
+                .environmentObject(rootViewModel)
         }
     }
 }
