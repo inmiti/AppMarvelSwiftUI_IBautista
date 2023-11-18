@@ -6,6 +6,7 @@
 //
 
 import Foundation
+//Caso de uso Fake del personaje "3-D Man" con id "1011334"
 let seriesFake = Serie(
     id: 1996,
     title: "Captain America (1968 - 1996)",

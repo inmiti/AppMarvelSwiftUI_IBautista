@@ -5,9 +5,10 @@
 //  Created by ibautista on 17/11/23.
 //
 
-import Foundation 
+import Foundation
 
-let responseCharacters: Response = Response(data: DataClass(results: [
+struct CharacterFake {
+    let responseCharacters: Response = Response(data: DataClass(results: [
         Character(
             id: 1011334,
             name: "3-D Man",
@@ -39,5 +40,5 @@ let responseCharacters: Response = Response(data: DataClass(results: [
             thumbnail: Thumbnail(
                 path: "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available",
                 extension: "jpg"))
-]))
-
+    ]))
+}

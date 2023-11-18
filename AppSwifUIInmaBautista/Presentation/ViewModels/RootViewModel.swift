@@ -13,15 +13,16 @@ final class RootViewModel: ObservableObject{
     @Published var characters: [Character]?
     
     var suscriptors = Set<AnyCancellable>()
+    var characterCaseUse: CharacterUseCaseProtocol
     
-    init(){
+    init(characterCaseUse: CharacterUseCaseProtocol = CharactersUseCase()){
+        self.characterCaseUse = characterCaseUse
         loadCharacters()
-       
     }
     
     func loadCharacters() {
         status = .loading
-        
+        /*
         URLSession.shared
             .dataTaskPublisher(for: BaseNetwork().getCharacters())
             .tryMap {
@@ -38,18 +39,21 @@ final class RootViewModel: ObservableObject{
             }
             .decode(type: Response<Character>.self, decoder: JSONDecoder())
             .receive(on: DispatchQueue.main)
+         */
+        characterCaseUse.getCharacters()
             .sink { completion in
                 //Evaluamos la respuesta:
                 switch completion {
-                case .finished:
-                    self.status = .loaded
-                case .failure(let error):
-                    self.status = .error(error: "Descarga errónea")
-                    print("Error: \(error)")
-                }
+                    case .finished:
+                        self.status = .loaded
+                    case .failure(let error):
+                        self.status = .error(error: "Descarga errónea")
+                        print("Error: \(error)")
+                    }
             } receiveValue: { data in
                 self.characters = data.data.results
                 print("Valores recibidos: \(data)")
+                self.status = .loaded
             }
             .store(in: &suscriptors)
     }
