@@ -14,6 +14,7 @@ struct LoaderView: View {
                 .resizable()
                 .frame(width: 50, height: 50)
                 .padding()
+            
             Text("Loading.....")
                 .font(.title)
                 .padding()

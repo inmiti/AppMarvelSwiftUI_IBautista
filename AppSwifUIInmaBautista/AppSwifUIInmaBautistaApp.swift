@@ -11,7 +11,7 @@ import SwiftUI
 struct AppSwifUIInmaBautistaApp: App {
     
     //ViewModel global
-    @StateObject var rootViewModel = RootViewModel(characterCaseUse: CharactersUseCaseFakeError())
+    @StateObject var rootViewModel = RootViewModel()
     
     var body: some Scene {
         WindowGroup {

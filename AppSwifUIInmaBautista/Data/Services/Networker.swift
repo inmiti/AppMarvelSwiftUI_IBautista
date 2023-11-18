@@ -21,7 +21,7 @@ final class Networker: NetworkerProtocol {
             .tryMap {
                 guard let response = $0.response as? HTTPURLResponse,
                       response.statusCode == 200 else {
-                    print("Error: \($0.response)")
+                    print("Error aqui: \($0.response)")
                     throw URLError(.badServerResponse)
                 }
                 return $0.data

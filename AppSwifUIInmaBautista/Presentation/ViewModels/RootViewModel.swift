@@ -22,24 +22,6 @@ final class RootViewModel: ObservableObject{
     
     func loadCharacters() {
         status = .loading
-        /*
-        URLSession.shared
-            .dataTaskPublisher(for: BaseNetwork().getCharacters())
-            .tryMap {
-                //Evaluamos si el status code es 200
-                guard let response = $0.response as? HTTPURLResponse,
-                      response.statusCode == 200 else {
-                    print("Error: \($0.response)")
-                    self.status = .error(error: "badServerResponse")
-                    throw URLError(.badServerResponse)
-                }
-                //Si todo está ok:
-                return $0.data
-                
-            }
-            .decode(type: Response<Character>.self, decoder: JSONDecoder())
-            .receive(on: DispatchQueue.main)
-         */
         characterCaseUse.getCharacters()
             .sink { completion in
                 //Evaluamos la respuesta:
@@ -47,12 +29,11 @@ final class RootViewModel: ObservableObject{
                     case .finished:
                         self.status = .loaded
                     case .failure(let error):
-                        self.status = .error(error: "Descarga errónea")
+                        self.status = .error(error: "La descarga de personajes ha fallado")
                         print("Error: \(error)")
                     }
             } receiveValue: { data in
                 self.characters = data.data.results
-                print("Valores recibidos: \(data)")
                 self.status = .loaded
             }
             .store(in: &suscriptors)

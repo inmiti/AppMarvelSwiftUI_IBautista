@@ -13,7 +13,7 @@ struct RootView: View {
         //Status box
         switch rootViewModel.status {
             case Status.none:
-                LoaderView()
+                LaunchView()
             case .loading:
                 LoaderView()
             case .error(error: let error):

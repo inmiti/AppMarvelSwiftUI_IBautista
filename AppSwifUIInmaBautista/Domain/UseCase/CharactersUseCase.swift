@@ -37,7 +37,7 @@ final class CharactersUseCaseFakeSuccess: CharacterUseCaseProtocol {
 }
 
 //MARK: - For testing: Case use failure
-
+/*
 final class CharactersUseCaseFakeError: CharacterUseCaseProtocol {
     func getCharacters() -> AnyPublisher<Response<Character>, Error> {
         let error = FakeError.fakeError(description: "This is a fake error for testing purposes.")
@@ -46,3 +46,4 @@ final class CharactersUseCaseFakeError: CharacterUseCaseProtocol {
         return publisher.eraseToAnyPublisher()
     }
 }
+*/
