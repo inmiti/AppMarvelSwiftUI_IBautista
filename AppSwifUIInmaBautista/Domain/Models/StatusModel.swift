@@ -7,6 +7,7 @@
 
 import Foundation
 
+//MARK: - Status box characters
 enum Status {
     case none
     case loading
@@ -14,6 +15,7 @@ enum Status {
     case error(error: String)
 }
 
+//MARK: - Status box series
 enum StatusSeries {
     case none
     case loading

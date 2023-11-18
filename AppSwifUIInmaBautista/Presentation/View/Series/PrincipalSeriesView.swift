@@ -9,7 +9,6 @@ import SwiftUI
 
 struct PrincipalSeriesView: View {
     @StateObject var seriesViewModel: SeriesViewModel
-//    @State var characterId: Int
     
     var body: some View {
         //Status box

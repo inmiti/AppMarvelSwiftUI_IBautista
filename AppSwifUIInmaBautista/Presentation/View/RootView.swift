@@ -9,6 +9,7 @@ import SwiftUI
 
 struct RootView: View {
     @EnvironmentObject var rootViewModel: RootViewModel
+    
     var body: some View {
         //Status box
         switch rootViewModel.status {

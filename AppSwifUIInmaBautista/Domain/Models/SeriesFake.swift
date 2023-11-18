@@ -7,6 +7,7 @@
 
 import Foundation
 
+// Series fake for testing and design UI
 struct SeriesFake {
     let responseSeries : Response = Response(data: DataClass(results:[
         Serie(

@@ -9,19 +9,22 @@ import Foundation
 import Combine
 
 final class SeriesViewModel: ObservableObject {
+    //Publishers
     @Published var series: [Serie]?
     @Published var statusView = StatusSeries.none
-//    @Published var characterId: Int
     
+    //Propertiers
     var suscriptors = Set<AnyCancellable>()
     var seriesCaseUse: SeriesUseCaseProtocol
     
+    //Initializer
     init(characterId: Int = 0, seriesCaseUse: SeriesUseCaseProtocol = SeriesUseCase()) {
         self.seriesCaseUse = seriesCaseUse
-//        self.characterId = characterId
+
         loadSeries(characterId: characterId)
     }
     
+    //Load series function
     func loadSeries(characterId: Int){
         self.statusView = .loading
         seriesCaseUse.getSeries(characterId: characterId)

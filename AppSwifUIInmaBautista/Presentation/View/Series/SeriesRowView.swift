@@ -11,7 +11,7 @@ struct SeriesRowView: View {
     var serie: Serie
     var body: some View {
         VStack{
-            //Name
+            //Serie title
             Text(serie.title)
                 .font(.title)
                 .bold()
@@ -32,11 +32,10 @@ struct SeriesRowView: View {
                         .opacity(0.8)
                 }
             
-            //Description
+            //Description or years
             Text(serie.description ?? "Inicio: \(serie.startYear) - Fin: \(serie.endYear)")
                 .foregroundColor(.gray)
                 .font(.callout)
-
         }
     }
 }

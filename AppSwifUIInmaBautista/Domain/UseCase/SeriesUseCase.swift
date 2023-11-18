@@ -8,6 +8,7 @@
 import Foundation
 import Combine
 
+// MARK: - Protocol
 protocol SeriesUseCaseProtocol: AnyObject {
     func getSeries(characterId: Int) -> AnyPublisher<Response<Serie>, Error>
 }
@@ -27,7 +28,7 @@ final class SeriesUseCase: SeriesUseCaseProtocol  {
     }
 }
 
-// MARK: - For Testing/ UI Use case of characters
+// MARK: - For Testing/ UI Use case of series
 final class SeriesUseCaseFakeSuccess: SeriesUseCaseProtocol {
     func getSeries(characterId: Int) -> AnyPublisher<Response<Serie>, Error> {
         let data: Response = SeriesFake().responseSeries

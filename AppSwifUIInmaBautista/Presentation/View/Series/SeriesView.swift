@@ -12,7 +12,6 @@ struct SeriesView: View {
     var body: some View {
         NavigationStack {
             List {
-//                if let series = viewModel.series {
                 ForEach(series) { serie in
                     SeriesRowView(serie: serie)
                         .frame(height: 500)
@@ -34,7 +33,6 @@ struct SeriesView_Previews: PreviewProvider {
             thumbnail: Thumbnail(
                 path: "http://i.annihil.us/u/prod/marvel/i/mg/2/50/5130f2104b29a",
                 extension: "jpg"))])
-//            viewModel: SeriesViewModel(characterId: 1009144))
     }
 }
 

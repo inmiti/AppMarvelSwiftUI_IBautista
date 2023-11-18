@@ -8,13 +8,22 @@
 import SwiftUI
 
 struct LoaderView: View {
+    @State private var isAnimating = false
+    
     var body: some View {
         VStack{
-            Image(systemName: "clock")
+            //Animation
+            Image(systemName: "circle.grid.cross.right.filled")
                 .resizable()
                 .frame(width: 50, height: 50)
                 .padding()
+                .rotationEffect(.degrees( isAnimating ? 360 : 0))
+                .animation(Animation.linear(duration: 0.5).repeatForever(autoreverses: false), value: isAnimating)
+                .onAppear(){
+                    self.isAnimating = true
+                }
             
+            //Loading text
             Text("Loading.....")
                 .font(.title)
                 .padding()

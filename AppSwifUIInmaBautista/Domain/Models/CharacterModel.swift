@@ -7,7 +7,7 @@
 
 import Foundation
 
-// MARK: - Result
+// MARK: - Result characters
 struct Character: Codable, Identifiable {
     let id: Int
     let name: String

@@ -8,6 +8,7 @@
 import Foundation
 import Combine
 
+//MARK: - Protocol
 protocol CharacterUseCaseProtocol: AnyObject {
     func getCharacters() -> AnyPublisher<Response<Character>, Error>
 }

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct LaunchView: View {
     var body: some View {
+        //Nothing in the LaunchView
         Text("")
     }
 }

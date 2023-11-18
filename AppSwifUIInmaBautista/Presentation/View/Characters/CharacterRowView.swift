@@ -9,14 +9,17 @@ import SwiftUI
 
 struct CharacterRowView: View {
     var character: Character
+    
     var body: some View {
         ZStack{
+            //Character photo
             AsyncImage(url: URL(string: "\(character.thumbnail.path).\(character.thumbnail.extension)")) { image in
                 image
                     .resizable()
                     .cornerRadius(20)
                     .opacity(0.8)
             } placeholder: {
+                //Placeholder
                 Image(systemName: "photo")
                     .resizable()
                     .cornerRadius(20)
@@ -24,6 +27,7 @@ struct CharacterRowView: View {
                     .foregroundColor(.gray)
             }
             
+            // Character name
             VStack(alignment: .leading) {
                 Spacer()
                     Text(character.name)

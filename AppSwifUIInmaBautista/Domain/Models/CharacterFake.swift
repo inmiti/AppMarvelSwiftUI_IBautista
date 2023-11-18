@@ -7,6 +7,7 @@
 
 import Foundation
 
+//Character fake for testing a desing UI
 struct CharacterFake {
     let responseCharacters: Response = Response(data: DataClass(results: [
         Character(

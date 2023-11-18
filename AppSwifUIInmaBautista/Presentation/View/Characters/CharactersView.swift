@@ -9,12 +9,14 @@ import SwiftUI
 
 struct CharactersView: View {
     @EnvironmentObject var rootViewModel: RootViewModel
+    
     var body: some View {
         NavigationStack {
             List{
                 if let characters = rootViewModel.characters{
                     ForEach(characters) { character in
                         NavigationLink {
+                            //Navegation to Series
                             PrincipalSeriesView(seriesViewModel: SeriesViewModel(characterId: character.id))
                         } label: {
                             //Celda personalizada
@@ -26,10 +28,6 @@ struct CharactersView: View {
             }
             .navigationTitle("Personajes")
         }
-//        .searchable(text: $filter,
-//                    placement: .automatic,
-//                    prompt: "Buscar personajes...")
-              
     }
 }
 

@@ -9,22 +9,25 @@ import Foundation
 import Combine
 
 final class RootViewModel: ObservableObject{
+    //Publishers
     @Published var status = Status.none
     @Published var characters: [Character]?
     
+    //Properties
     var suscriptors = Set<AnyCancellable>()
     var characterCaseUse: CharacterUseCaseProtocol
     
+    //Initializer
     init(characterCaseUse: CharacterUseCaseProtocol = CharactersUseCase()){
         self.characterCaseUse = characterCaseUse
         loadCharacters()
     }
     
+    // Load characters function
     func loadCharacters() {
         status = .loading
         characterCaseUse.getCharacters()
             .sink { completion in
-                //Evaluamos la respuesta:
                 switch completion {
                     case .finished:
                     self.status = .loaded

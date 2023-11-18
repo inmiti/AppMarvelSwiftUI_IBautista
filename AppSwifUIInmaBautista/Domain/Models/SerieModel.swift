@@ -7,7 +7,7 @@
 
 import Foundation
 
-// MARK: - Result
+// MARK: - Result series
 struct Serie: Codable, Identifiable {
     let id: Int
     let title: String

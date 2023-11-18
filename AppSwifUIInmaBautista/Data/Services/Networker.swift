@@ -8,11 +8,12 @@
 import Foundation
 import Combine
 
-//Llamada de red con genéricos y combine:
+//MARK: - API call
 protocol NetworkerProtocol: AnyObject {
     func callServer<T>(type: T.Type, request:URLRequest) -> AnyPublisher<T, Error>
     where T:Decodable
 }
+
 final class Networker: NetworkerProtocol {
     func callServer<T>(type: T.Type, request: URLRequest) -> AnyPublisher<T, Error> where T:Decodable {
         URLSession.shared
@@ -28,7 +29,5 @@ final class Networker: NetworkerProtocol {
             }
             .decode(type: T.self, decoder: JSONDecoder())
             .eraseToAnyPublisher()
-        
-}
-    
+    }
 }

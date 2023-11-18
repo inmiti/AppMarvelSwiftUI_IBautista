@@ -17,6 +17,7 @@ struct ErrorView: View {
     var body: some View {
         VStack{
             
+            // Warning image
             Image(systemName: "exclamationmark.triangle")
                 .resizable()
                 .foregroundColor(.red)
@@ -24,7 +25,8 @@ struct ErrorView: View {
                 .padding()
                 .shadow(radius: 10, x: 20, y: 10)
                 .id(0)
-    
+            
+            // Error message
             Text("Error: \(textError)")
                 .font(.title)
                 .foregroundColor(.red)
@@ -33,6 +35,7 @@ struct ErrorView: View {
                 .shadow(radius: 10, x: 20, y: 10)
                 .id(1)
             
+            // Return button
             Button {
                 //Action: 
                 rootViewModel.status = .loading
