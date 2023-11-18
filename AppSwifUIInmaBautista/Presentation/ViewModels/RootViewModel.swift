@@ -27,14 +27,14 @@ final class RootViewModel: ObservableObject{
                 //Evaluamos la respuesta:
                 switch completion {
                     case .finished:
-                        self.status = .loaded
+                    self.status = .loaded
                     case .failure(let error):
                         self.status = .error(error: "La descarga de personajes ha fallado")
                         print("Error: \(error)")
                     }
-            } receiveValue: { data in
-                self.characters = data.data.results
-                self.status = .loaded
+            } receiveValue: { [weak self] data in
+                self?.characters = data.data.results
+                self?.status = .loaded
             }
             .store(in: &suscriptors)
     }

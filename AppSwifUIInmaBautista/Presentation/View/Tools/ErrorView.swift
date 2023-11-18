@@ -35,7 +35,7 @@ struct ErrorView: View {
             
             Button {
                 //Action: 
-                rootViewModel.status = .none
+                rootViewModel.status = .loading
             } label: {
                 Text("Volver")
                     .font(.title)
@@ -47,6 +47,7 @@ struct ErrorView: View {
                     .shadow(radius: 10, x: 20, y: 10)
             }
             .padding([.top], 100)
+            .id(2)
         
         }
     }

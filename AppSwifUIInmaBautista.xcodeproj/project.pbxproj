@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1F10CB612B076315009F51D5 /* CharacterFake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F10CB602B076315009F51D5 /* CharacterFake.swift */; };
+		1F2DD9042B0942560070D95D /* ViewInspector in Frameworks */ = {isa = PBXBuildFile; productRef = 1F2DD9032B0942560070D95D /* ViewInspector */; };
+		1F2DD9062B09548D0070D95D /* PrincipalSeriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2DD9052B09548D0070D95D /* PrincipalSeriesView.swift */; };
 		1FD812282B08B301009886A9 /* ErrorsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD812272B08B301009886A9 /* ErrorsApp.swift */; };
 		1FD8122A2B08B8F7009886A9 /* CharactersUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD812292B08B8F7009886A9 /* CharactersUseCase.swift */; };
 		1FD8122C2B08E1D1009886A9 /* ViewModelsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD8122B2B08E1D1009886A9 /* ViewModelsTest.swift */; };
@@ -59,6 +61,7 @@
 
 /* Begin PBXFileReference section */
 		1F10CB602B076315009F51D5 /* CharacterFake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterFake.swift; sourceTree = "<group>"; };
+		1F2DD9052B09548D0070D95D /* PrincipalSeriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrincipalSeriesView.swift; sourceTree = "<group>"; };
 		1FD812272B08B301009886A9 /* ErrorsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorsApp.swift; sourceTree = "<group>"; };
 		1FD812292B08B8F7009886A9 /* CharactersUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersUseCase.swift; sourceTree = "<group>"; };
 		1FD8122B2B08E1D1009886A9 /* ViewModelsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelsTest.swift; sourceTree = "<group>"; };
@@ -108,6 +111,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F2DD9042B0942560070D95D /* ViewInspector in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -311,6 +315,7 @@
 			children = (
 				1FE2BFA42B07EAB300EB71C1 /* SeriesView.swift */,
 				1FE2BFA62B07EAC600EB71C1 /* SeriesRowView.swift */,
+				1F2DD9052B09548D0070D95D /* PrincipalSeriesView.swift */,
 			);
 			path = Series;
 			sourceTree = "<group>";
@@ -351,6 +356,9 @@
 				1FDC496F2B0639B500A78513 /* PBXTargetDependency */,
 			);
 			name = AppSwifUIInmaBautistaTests;
+			packageProductDependencies = (
+				1F2DD9032B0942560070D95D /* ViewInspector */,
+			);
 			productName = AppSwifUIInmaBautistaTests;
 			productReference = 1FDC496D2B0639B500A78513 /* AppSwifUIInmaBautistaTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -406,6 +414,7 @@
 			);
 			mainGroup = 1FDC49532B0639B100A78513;
 			packageReferences = (
+				1F2DD9022B0942560070D95D /* XCRemoteSwiftPackageReference "ViewInspector" */,
 			);
 			productRefGroup = 1FDC495D2B0639B200A78513 /* Products */;
 			projectDirPath = "";
@@ -459,6 +468,7 @@
 				1FD8122E2B08E62C009886A9 /* SeriesUseCase.swift in Sources */,
 				1FDC49972B063FC100A78513 /* CharactersView.swift in Sources */,
 				1FDC499F2B06407200A78513 /* BaseNetwork.swift in Sources */,
+				1F2DD9062B09548D0070D95D /* PrincipalSeriesView.swift in Sources */,
 				1FDC49602B0639B200A78513 /* AppSwifUIInmaBautistaApp.swift in Sources */,
 				1FE2BFA92B07EF3500EB71C1 /* SerieModel.swift in Sources */,
 				1FDC49A12B06408400A78513 /* Networker.swift in Sources */,
@@ -828,6 +838,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		1F2DD9022B0942560070D95D /* XCRemoteSwiftPackageReference "ViewInspector" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/nalexn/ViewInspector";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.9.8;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1F2DD9032B0942560070D95D /* ViewInspector */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1F2DD9022B0942560070D95D /* XCRemoteSwiftPackageReference "ViewInspector" */;
+			productName = ViewInspector;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1FDC49542B0639B100A78513 /* Project object */;
 }

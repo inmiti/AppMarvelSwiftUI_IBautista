@@ -15,7 +15,7 @@ struct CharactersView: View {
                 if let characters = rootViewModel.characters{
                     ForEach(characters) { character in
                         NavigationLink {
-                            SeriesView(viewModel: SeriesViewModel(characterId: character.id))
+                            PrincipalSeriesView(seriesViewModel: SeriesViewModel(characterId: character.id))
                         } label: {
                             //Celda personalizada
                             CharacterRowView(character: character)

@@ -10,29 +10,33 @@ import Combine
 
 final class SeriesViewModel: ObservableObject {
     @Published var series: [Serie]?
-    @Published var status = Status.none
+    @Published var statusView = StatusSeries.none
+//    @Published var characterId: Int
+    
     var suscriptors = Set<AnyCancellable>()
     var seriesCaseUse: SeriesUseCaseProtocol
     
-    init(characterId: Int, seriesCaseUse: SeriesUseCaseProtocol = SeriesUseCase()) {
+    init(characterId: Int = 0, seriesCaseUse: SeriesUseCaseProtocol = SeriesUseCase()) {
         self.seriesCaseUse = seriesCaseUse
+//        self.characterId = characterId
         loadSeries(characterId: characterId)
     }
     
     func loadSeries(characterId: Int){
-        self.status = .loading
+        self.statusView = .loading
         seriesCaseUse.getSeries(characterId: characterId)
             .sink { completion in
                 //Evaluamos la respuesta:
                 switch completion {
                     case .finished:
-                        self.status = .loaded
+                        break
                     case .failure(let error):
-                        self.status = .error(error: "La descarga de series ha fallado")
-                        print("Error 22: \(error)")
+                        self.statusView = .error(error: "La descarga de series ha fallado")
+                        print("Error Series: \(error)")
                 }
-            } receiveValue: { data in
-                self.series = data.data.results
+            } receiveValue: { [weak self] data in
+                self?.series = data.data.results
+                self?.statusView = .loaded(series: self?.series ?? [])
             }
             .store(in: &suscriptors)
     }

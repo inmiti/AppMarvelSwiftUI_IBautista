@@ -13,3 +13,11 @@ enum Status {
     case loaded
     case error(error: String)
 }
+
+enum StatusSeries {
+    case none
+    case loading
+    case loaded(series:[Serie])
+    case error(error: String)
+}
+

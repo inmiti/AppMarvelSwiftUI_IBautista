@@ -6,6 +6,9 @@
 //
 
 import XCTest
+import ViewInspector
+
+@testable import AppSwifUIInmaBautista
 
 final class UIViewTest: XCTestCase {
 
@@ -17,12 +20,33 @@ final class UIViewTest: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
+    func testUI_ErrorView() throws {
+        let view = ErrorView(error: "Prueba de Testing")
+            .environmentObject(RootViewModel(characterCaseUse: CharactersUseCaseFakeSuccess()))
+        
+        XCTAssertNotNil(view)
+        
+        let numItems = try view.inspect().count
+        XCTAssertEqual(numItems, 1)
+        
+        //Imagen
+        let image = try view.inspect().find(viewWithId: 0)
+        XCTAssertNotNil(image)
+        
+        //Texto
+        let text = try view.inspect().find(viewWithId: 1)
+        XCTAssertNotNil(text)
+        
+        let textTest = try text.text().string()
+        XCTAssertEqual(textTest,"Error: Prueba de Testing")
+        
+        //Button
+        let button = try view.inspect().find(viewWithId: 2)
+        XCTAssertNotNil(button)
+        
+        // Tap button
+        try button.button().tap()
+        
     }
 
 
