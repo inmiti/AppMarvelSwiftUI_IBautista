@@ -31,11 +31,13 @@ struct SeriesRowView: View {
                         .foregroundColor(.gray)
                         .opacity(0.8)
                 }
+                .id(7)
             
             //Description or years
             Text(serie.description ?? "Inicio: \(serie.startYear) - Fin: \(serie.endYear)")
                 .foregroundColor(.gray)
                 .font(.callout)
+                .id(8)
         }
     }
 }

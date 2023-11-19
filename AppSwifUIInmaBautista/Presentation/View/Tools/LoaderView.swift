@@ -22,11 +22,13 @@ struct LoaderView: View {
                 .onAppear(){
                     self.isAnimating = true
                 }
+                .id(3)
             
             //Loading text
             Text("Loading.....")
                 .font(.title)
                 .padding()
+                .id(4)
         }
     }
 }

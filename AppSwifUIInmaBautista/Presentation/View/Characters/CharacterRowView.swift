@@ -26,6 +26,7 @@ struct CharacterRowView: View {
                     .opacity(0.8)
                     .foregroundColor(.gray)
             }
+            .id(5)
             
             // Character name
             VStack(alignment: .leading) {
@@ -35,6 +36,7 @@ struct CharacterRowView: View {
                         .foregroundColor(.black)
                         .bold()
                         .padding([.bottom, .leading], 20)
+                        .id(6)
    
             }
         }

@@ -10,13 +10,17 @@ import SwiftUI
 struct SeriesView: View {
     @State var series: [Serie]
     var body: some View {
-        NavigationStack {
-            List {
-                ForEach(series) { serie in
-                    SeriesRowView(serie: serie)
-                        .frame(height: 500)
+        if #available(macOS 13.0, *) {
+            NavigationStack {
+                List {
+                    ForEach(series) { serie in
+                        SeriesRowView(serie: serie)
+                            .frame(height: 500)
+                    }
                 }
             }
+        } else {
+            // Fallback on earlier versions
         }
     }
 }
